@@ -10,7 +10,7 @@ var auth = require('http-auth');
 // Pages
 var tableOfContents = require('./routes/table-of-contents');
 var styleguide = require('./routes/styleguide');
-// var examplePage = require('./routes/examplePage');
+// ~ dynamically generated ~ 0 ~
 
 var app = express();
 var basic;
@@ -47,7 +47,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 // Define/declare routes
 app.use('/', tableOfContents);
 app.use('/styleguide', styleguide);
-// app.use('/examplePage', examplePage);
+// ~ dynamically generated ~ 1 ~
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

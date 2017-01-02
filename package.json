@@ -28,9 +28,11 @@
   },
   "dependencies": {
     "body-parser": "~1.15.2",
+    "cli": "^1.0.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "express": "~4.14.0",
+    "fs-extra": "^1.0.0",
     "http-auth": "^3.0.1",
     "jquery": "^3.1.1",
     "lodash": "^4.16.6",
@@ -38,6 +40,7 @@
     "morgan": "~1.7.0",
     "nodemon": "^1.11.0",
     "normalize-scss": "^6.0.0",
+    "replace-in-file": "^2.0.3",
     "serve-favicon": "~2.3.0",
     "signals": "^1.0.0",
     "twig": "^0.10.0"
