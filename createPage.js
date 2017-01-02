@@ -4,13 +4,16 @@
  * 1. Creates the necessary files from template files for a new page in the prototype
  * 2. Updates `app.js` to have the new route
  * 3. Updates `src/scss/index.scss` to import the new SCSS file
+ * 4. Optionally add the new page to the Table of Contents page
  */
 const replace = require('replace-in-file');
 const fs = require('fs-extra');
 const cli = require('cli');
+const padStart = require('lodash.padstart');
 
 cli.parse({
     pagename: ['p', 'The name of the new page/module', 'string'],
+    index: ['i', 'Add to index?', 'on'],
 });
 
 /**
@@ -74,9 +77,9 @@ function writeNewAppJs(pagename) {
         const array = data.toString().split('\n');
         let output = '';
         for (let i = 0; i < array.length; i++) {
-            if (array[i] === '// ~ dynamically generated ~ 0 ~') {
+            if (array[i].trim() === '// ~ dynamically generated ~ 0 ~') {
                 output += `${array[i]}\nvar ${pagename} = require('./routes/${pagename}');\n`;
-            } else if (array[i] === '// ~ dynamically generated ~ 1 ~') {
+            } else if (array[i].trim() === '// ~ dynamically generated ~ 1 ~') {
                 output += `${array[i]}\napp.use('/${pagename}', ${pagename});\n`;
             } else if (i === array.length - 1) {
                 output += `${array[i]}`;
@@ -86,14 +89,49 @@ function writeNewAppJs(pagename) {
         }
 
         // sk: write to TMP file
-        fs.appendFileSync('TMP', output);
+        fs.appendFileSync('TMP-app', output);
         console.log('Writing TMP app.js');
 
         // sk: delete app.js // rename TMP to app.js
         fs.unlink('app.js');
         console.log('Deleting old app.js');
-        fs.renameSync('TMP', 'app.js');
+        fs.renameSync('TMP-app', 'app.js');
         console.log('Writing new app.js');
+    });
+}
+
+/**
+ * Inserts new page into the table of contents
+ *
+ * @param {String} pagename
+ */
+function writeNewtableOfContentsJs(pagename) {
+    fs.readFile('routes/table-of-contents.js', (err, data) => {
+        if (err) { throw err; }
+        const array = data.toString().split('\n');
+        let output = '';
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].trim() === '// ~ dynamically generated ~ 0 ~') {
+                const upperCasePagename = pagename.charAt(0).toUpperCase() + pagename.slice(1);
+                let route = `{ label: '${upperCasePagename}', url: '${pagename}' },\n`;
+                route = padStart(route, route.length + 16);
+                output += `${array[i]}\n${route}`;
+            } else if (i === array.length - 1) {
+                output += `${array[i]}`;
+            } else {
+                output += `${array[i]}\n`;
+            }
+        }
+
+        // sk: write to TMP file
+        fs.appendFileSync('TMP-toc', output);
+        console.log('Writing TMP routes/table-of-contents.js');
+
+        // sk: delete routes/table-of-contents.js // rename TMP to routes/table-of-contents.js
+        fs.unlink('routes/table-of-contents.js');
+        console.log('Deleting old routes/table-of-contents.js');
+        fs.renameSync('TMP-toc', 'routes/table-of-contents.js');
+        console.log('Writing new routes/table-of-contents.js');
     });
 }
 
@@ -114,8 +152,11 @@ cli.main((args, options) => {
         fs.appendFileSync('src/scss/index.scss', `@import "${p}"`);
         console.log('Appended `@import` for new SCSS');
 
+        if (options.index) {
+            writeNewtableOfContentsJs(p);
+        }
         // `http://localhost:3000/${p}`
     } else {
-        console.log('Use the -h flag to list options');
+        console.log('Use `-h` flag to list options');
     }
 });

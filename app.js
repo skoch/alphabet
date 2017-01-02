@@ -11,6 +11,7 @@ var auth = require('http-auth');
 var tableOfContents = require('./routes/table-of-contents');
 var styleguide = require('./routes/styleguide');
 // ~ dynamically generated ~ 0 ~
+// ~ end dynamically generated ~
 
 var app = express();
 var basic;
@@ -48,6 +49,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/', tableOfContents);
 app.use('/styleguide', styleguide);
 // ~ dynamically generated ~ 1 ~
+// ~ end dynamically generated ~
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -16,6 +16,8 @@ router.get('/', function(req, res, next) {
                     label: 'Styleguide',
                     url: 'styleguide',
                 },
+                // ~ dynamically generated ~ 0 ~
+                // ~ end dynamically generated ~
             ],
         ],
     });
