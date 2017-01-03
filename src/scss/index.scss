@@ -1,0 +1,21 @@
+@charset "UTF-8";
+// Importing normalize from node_modules, with auto init
+@import "~normalize-scss/sass/normalize/_import-now";
+
+@import "_setup/colors";
+@import "_setup/variables";
+@import "_setup/mixins";
+@import "_setup/fonts";
+@import "_setup/global";
+// @import "_setup/*.scss";
+
+.icon-check {
+    fill: white;
+    width: 40px;
+    height: 40px;
+}
+
+// @import "_blank";
+@import "styleguide";
+@import "table-of-contents";
+@import "components";

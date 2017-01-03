@@ -1,0 +1,20 @@
+node_modules/
+vendor/
+dist/
+*.log
+*.lock
+config/config-deploy.sh
+
+# OSX
+.DS_Store
+.DS_Store?
+
+# SASS
+.sass-cache/
+*.css.map
+
+# Sublime text
+*.sublime-workspace
+*.sublime-project
+
+TODO.local

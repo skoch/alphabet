@@ -1,0 +1,36 @@
+// ---=== Fonts! ===--- //
+
+// Example
+@mixin proxima-nova {
+  font-family: "proxima-nova",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+// ---=== Font Face Declarations ===--- //
+// Example
+@font-face {
+    font-family: "proxima-nova";
+    src: url("../fonts/Proxima-Nova.woff") format("woff"), /* chrome, firefox */
+    url("../fonts/Proxima-Nova.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("../fonts/Proxima-Nova.svg#Mark") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+@mixin open-sans-light {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+@mixin open-sans {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+@mixin oswald-light {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+}
+@mixin oswald {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+}

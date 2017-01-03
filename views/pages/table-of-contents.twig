@@ -1,0 +1,37 @@
+{% extends 'layouts/layout.twig' %}
+
+{% block extras_header_code %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Oswald:300,400" rel="stylesheet">
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+<div class="table-of-contents">
+
+    <div class="logo">
+        <img src="images/svg/logo-hcs-dark.svg" alt="Client Logo">
+    </div>
+
+    <nav>
+        {% for section in sections %}
+        <section>
+        {% for page in section %}
+            <a href="{{ page.url }}">{{ page.label | capitalize }}</a>
+        {% endfor %}
+        </section>
+        {% endfor %}
+    </nav>
+
+</div>
+{# <h1>This is the home page.</h1>
+<p>
+    This is an example of an SVG include via the spritesheet:
+    <svg class="icon icon-check">
+        <use xlink:href="#check-icon"></use>
+    </svg>
+</p> #}
+{% endblock %}
+
+{% block footer %}{% endblock %}

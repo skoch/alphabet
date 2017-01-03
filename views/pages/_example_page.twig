@@ -1,0 +1,49 @@
+{#
+    Example page! Documentation for explanation on how to use the perks of this template structure.
+
+    NOTES:
+    - Most of the configuration will be achieved directly through the snippets below,
+    - Some overrides can also be fed through the route definition [routes.json]. Since JSON doesn't allow for comments, view the "/example_page" route in routes.json for a configuration that matches this page's features
+
+ #}
+
+{# This brings in our main layout file. Header/Footer auto included, title set, etc. #}
+{% extends 'layouts/layout.twig' %}
+
+{# Extra header content; css, etc. Include as block in child twig file. #}
+{% block extras_header_code %}
+    <link rel="stylesheet" href="extras_header"/>
+{% endblock %}
+
+{#
+    By default, the "shared/_header" file is automatically included as the universal header.
+    However, you can manually override it as a block of code here:
+#}
+{% block header %}
+    <header>If you use this block of code, this header would be used instead of the default header</header>
+{% endblock header %}
+
+{# ...OR set the "header_file" variable to the file you'd rather use instead. #}
+{% set header_file = 'shared/_footer.twig' %}
+{# This file can be set either here, or at the route level in /config/routes.json #}
+
+
+
+{# The main body for this page. Goodies go here! #}
+{% block content %}
+    <h1>This is a blank example page.</h1>
+{% endblock content %}
+
+
+
+{#
+    By default, the "shared/_footer" file is automatically included as the universal footer.
+    However, you can manually override it as a block of code here:
+#}
+{% block footer %}
+    <footer>If you use this block of code, this footer would be used instead of the default footer</footer>
+{% endblock footer %}
+
+{# ...OR set the "footer_file" variable to the file you'd rather use instead. #}
+{% set footer_file = 'shared/_footer.twig' %}
+{# This file can be set either here, or at the route level in /config/routes.json #}

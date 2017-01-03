@@ -1,0 +1,41 @@
+// rem fallback - credits: http://zerosixthree.se/
+@function calculateRem($size) {
+  $remSize: $size / 10px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+// antialiasing mode font rendering
+
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@mixin transform($val) {
+  -webkit-transform: $val;
+  -moz-transform: $val;
+  -ms-transform: $val;
+  -o-transform: $val;
+  transform: $val;
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin rotate( $val: -2deg ) {
+  -webkit-transform: rotate($val);
+  -moz-transform: rotate($val);
+  -ms-transform: rotate($val);
+  transform: rotate($val);
+}
+
+

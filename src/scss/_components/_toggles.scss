@@ -1,0 +1,73 @@
+// Toggles
+// credit: http://www.w3schools.com/howto/howto_css_switch.asp
+// WHAT???
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 6rem;
+    height: 3.4rem;
+
+    // Hide default HTML checkbox
+    input {
+        display:none;
+
+        &:checked + .slider {
+            background-color: $hcs-blue;
+        }
+
+        &:focus + .slider {
+            box-shadow: 0 0 .1rem $hcs-blue;
+        }
+
+        &:checked + .slider:before {
+            transform: translateX( 2.6rem );
+        }
+
+    }
+
+    // The slider
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $grey-light;
+        transition: $transition;
+
+        &:before {
+            position: absolute;
+            content: "";
+            height: 2.6rem;
+            width: 2.6rem;
+            left: .4rem;
+            bottom: .4rem;
+            background-color: $white;
+            transition: $transition;
+        }
+
+        // Rounded sliders
+        &.round {
+            border-radius: 3.4rem;
+
+            &:before {
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+// input:checked + .slider {
+//     background-color: $hcs-blue;
+// }
+
+// input:focus + .slider {
+//     box-shadow: 0 0 .1rem $hcs-blue;
+// }
+
+// input:checked + .slider:before {
+//     transform: translateX( 2.6rem );
+// }
+

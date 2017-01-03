@@ -1,0 +1,87 @@
+// Inputs
+.input {
+    width: 100%;
+    margin: 10px 0;
+    label {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 1.6rem;
+    }
+
+    .error-msg {
+        // sk: I'm guessing designers will usually want this ;)
+        // position: absolute;
+        display: none;
+        font-size: 1.4rem;
+        color: $error-red;
+        margin-top: .5rem;
+    }
+
+    &.has-error {
+        input[type="email"],
+        input[type="text"],
+        input[type="password"] {
+            border-color: $error-red;
+            &:focus {
+                border-color: $error-red;
+            }
+        }
+
+        .error-msg {
+            display: block;
+        }
+    }
+
+    &.has-warning {
+        input[type="email"],
+        input[type="text"],
+        input[type="password"] {
+            border-color: $warning-yellow;
+            &:focus {
+                border-color: $warning-yellow;
+            }
+        }
+    }
+
+    &.has-success {
+        input[type="email"],
+        input[type="text"],
+        input[type="password"] {
+            border-color: $success-green;
+            &:focus {
+                border-color: $success-green;
+            }
+        }
+    }
+
+
+    // sk: should these be the same or broken out?
+    input[type="email"],
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        border: .2rem solid $grey;
+        border-radius: $border-radius;
+        font-size: 1.8rem;
+        padding: 1rem;
+        transition: border-color $transition;
+        background: none;
+
+        &:focus {
+            border-color: $hcs-blue;
+            outline: none;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            background-color: $grey-light;
+            border: .2rem solid $grey;
+        }
+
+        &::-webkit-input-placeholder {
+            font-size: 1.8rem;
+            color: $grey;
+        }
+    }
+}

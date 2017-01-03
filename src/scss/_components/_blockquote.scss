@@ -1,0 +1,61 @@
+q {
+    quotes: "“" "”" "‘" "’";
+}
+q:before {
+    content: open-quote;
+}
+q:after {
+    content: close-quote;
+}
+
+blockquote {
+    position: relative;
+    // border-left: .5rem solid $grey-light;
+    color: $grey;
+    margin: 2.5rem;
+
+    p {
+        position: relative;
+        margin: 0;
+        padding: 3rem 12rem;
+        text-align: center;
+        font-size: 3rem;
+
+        @media all and (max-width: 550px) {
+            padding: 1rem 5rem;
+        }
+
+        &:before,
+        &:after {
+            color: $grey-light;
+            font-family: Cambria, Georgia, serif;
+            position: absolute;
+            width: 6rem;
+            height: 6rem;
+            font-size: 12rem;
+            line-height: 1;
+        }
+
+        &:before {
+            top: 0;
+            left: 0;
+            content: "\201C";
+        }
+        &:after {
+            top: 0;
+            right: 0;
+            content: "\201D";
+        }
+    }
+
+    cite {
+        font-style: normal;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 4rem;
+    }
+
+
+}
+
+

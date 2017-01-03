@@ -1,0 +1,52 @@
+html, body {
+    &.table-of-contents-background {
+        background: $white;
+        color: $black;
+        @include open-sans-light;
+        font-size: 62.5%;
+        // normalize was updated to use 1.15 so this resets
+        line-height: normal;
+    }
+}
+
+.table-of-contents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    background: $white;
+
+    .logo {
+        width: 15rem;
+        margin-bottom: 1rem;
+    }
+
+    nav {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        // flex-direction: column;
+
+        section {
+            min-width: 20rem;
+            padding: 2rem;
+            display: flex;
+            align-items: flex-start;
+            // justify-content: center;
+            flex-direction: column;
+
+            a, a:hover, a:active, a:visited, a:link {
+                color: $hcs-blue;
+                text-decoration: none;
+                // text-transform: uppercase;
+                padding: .5rem 0;
+
+                &:hover {
+                    color: $black;
+                }
+            }
+        }
+    }
+}

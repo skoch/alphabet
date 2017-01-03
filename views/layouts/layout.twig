@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="no-js {{ htmlClass }}" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{{ title }}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/index.css">
+
+        {# Extra header content; css, etc. Include as block in child twig file. #}
+        {{ block('extras_header_code') }}
+    </head>
+
+    <body class="{{ bodyClass }}">
+
+        {# SVG spritesheet inclusion via global variable #}
+        {{ svgSprite }}
+
+        {# Confused or lost? Checkout /views/pages/example_page.twig #}
+
+        {% block header %}
+            {% include 'shared/_header.twig' %}
+        {% endblock %}
+
+        {% block content %}{% endblock %}
+
+        {% block footer %}
+            {% include 'shared/_footer.twig' %}
+        {% endblock %}
+    </body>
+
+    <script src="/js/bundle.js"></script>
+    {% if pageJs %}
+    <script>var pageJs = '{{ pageJs }}';</script>
+    {% endif %}
+
+    {# Extra header footer; js, etc. Include as block in child twig file. #}
+    {{ block('extras_footer_code') }}
+</html>

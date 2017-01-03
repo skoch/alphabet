@@ -1,0 +1,64 @@
+// Typography
+.h1,
+h1 {
+    @include oswald;
+    font-size: 6rem;
+    font-weight: 400;
+    margin: 20px 0;
+}
+.h2,
+h2 {
+    @include oswald;
+    font-size: 5rem;
+    font-weight: 400;
+    margin: 20px 0;
+}
+.h3,
+h3 {
+    @include oswald;
+    font-size: 4rem;
+    font-weight: 400;
+    margin: 20px 0;
+}
+.h4,
+h4 {
+    @include oswald;
+    font-size: 3rem;
+    font-weight: 400;
+    margin: 20px 0;
+}
+.h5,
+h5 {
+    @include oswald;
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 20px 0;
+}
+.h6,
+h6 {
+    @include oswald;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+p {
+    font-size: 1.8rem;
+    line-height: 1.444444444;
+    margin: 1.5rem 0;
+}
+
+.help-block {
+    display: block;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    color: $grey;
+}
+
+// styleguide only
+.alphanumerics {
+    word-break: break-all;
+    font-size: 3rem;
+    font-weight: 400;
+}

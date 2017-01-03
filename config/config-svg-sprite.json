@@ -1,0 +1,45 @@
+{
+    "dest": "./dist/images/",
+    "log": "info",
+    "shape": {
+       "dest": "svg",
+       "transform": [
+           {
+               "svgo": {
+                   "plugins": [
+                       {
+                           "removeComments": true
+                       },
+                       {
+                           "removeViewBox": true
+                       },
+                       {
+                           "removeEmptyContainers": true
+                       },
+                       {
+                            "removeAttrs": {
+                               "attrs":  "(stroke|fill)"
+                           }
+                       },
+                       {
+                           "removeStyleElement": true
+                       }
+                   ]
+               }
+           }
+       ]
+    },
+    "svg": {
+       "xmlDeclaration": false,
+       "doctypeDeclaration": false,
+       "namespaceIDs": false,
+       "namespaceClassnames": false       
+    },
+    "mode"                    : {
+        "symbol"              : {
+            "dest"            : ".",
+            "sprite"          : "svg-sprites.svg",
+            "inline": true
+        }
+    }
+}

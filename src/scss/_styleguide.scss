@@ -1,0 +1,97 @@
+
+html, body {
+    &.styleguide-background {
+        background: $white;
+        color: $black;
+        @include open-sans;
+        font-size: 62.5%;
+        // normalize was updated to use 1.15 so this resets
+        line-height: normal;
+    }
+}
+
+.Styleguide {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 3rem;
+    background: $off-white;
+    box-shadow: 0 0 1.5rem 0 $grey-light;
+
+    @media all and (max-width: 550px) {
+        padding: 2rem;
+    }
+
+    nav {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        &#table-of-contents {
+            margin: 3rem 0 1rem;
+            max-width: 28rem;
+        }
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        img {
+            width: 12rem;
+        }
+    }
+    section {
+        margin-top: 10rem;
+        .section-content {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            padding: 1rem;
+
+            &-col {
+                flex-direction: column;
+            }
+        }
+
+        .section-header,
+        .section-subheader {
+            margin: 0;
+            margin: 1.5rem 0 1rem;
+            // padding-bottom: 1rem;
+        }
+
+        .section-header {
+            color: $grey-dark;
+            @include oswald;
+            font-size: 6rem;
+            // text-transform: uppercase;
+            border-bottom: .1rem solid $grey-light;
+        }
+        .section-subheader {
+            color: $grey;
+            @include oswald-light;
+            font-size: 3rem;
+        }
+    }
+
+    // colors
+    .color-block {
+        width: calc( 100% / 6 );
+        min-width: 12rem;
+        .color {
+            height: 10rem;
+        }
+        .hex {
+            color: $grey;
+        }
+    }
+
+    footer {
+        margin: 2rem;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

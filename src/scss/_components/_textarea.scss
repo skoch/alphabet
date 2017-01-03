@@ -1,0 +1,36 @@
+.textarea {
+    width: 100%;
+
+    label {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 1.6rem;
+    }
+
+    textarea {
+        width: 100%;
+        border: .2rem solid $grey;
+        border-radius: $border-radius;
+        font-size: 1.8rem;
+        padding: 1rem;
+        transition: border-color $transition;
+        background: none;
+
+        &:focus {
+            border-color: $hcs-blue;
+            outline: none;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            background-color: $grey-light;
+            border: .2rem solid $grey;
+        }
+
+        &::-webkit-input-placeholder {
+            font-size: 1.8rem;
+            color: $grey;
+        }
+    }
+}

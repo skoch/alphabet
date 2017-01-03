@@ -1,0 +1,51 @@
+// Buttons
+a.btn,
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: .2rem solid rgba(0, 0, 0, 0);
+    white-space: nowrap;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    line-height: 1;
+    border-radius: 0;
+    user-select: none;
+
+    color: $black;
+    transition: background-color $transition, color $transition;
+
+    &:hover {
+        background-color: $black;
+        color: $white;
+    }
+
+    // &:focus {
+    //     background-color: $hcs-blue;
+    //     border: .2rem solid $hcs-blue;
+    //     outline: thin dotted;
+    //     outline: 0;
+    // }
+
+    &.jump {
+        font-size: 1.2rem;
+        border-color: $grey;
+        color: $grey;
+        padding: 1rem;
+
+        &:hover {
+            background-color: $grey-light;
+        }
+
+        width: 100%;
+        margin-top: -1px;
+        border-width: 1px;
+        text-align: left;
+    }
+}

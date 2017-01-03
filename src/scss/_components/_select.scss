@@ -1,0 +1,33 @@
+// Select (dropdown)
+select {
+    margin: 1rem 0;
+    width: 100%;
+    border: .2rem solid $grey;
+    border-radius: $border-radius;
+    // @include futura;
+
+    font-size: 1.8rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    color: $grey;
+
+    background: url( '../images/svg/down-arrow-black-icon.svg' ) no-repeat calc(100% - 0.5rem) 50%;
+    background-size: 4rem 4rem;
+
+    padding: .9rem 1rem;
+    // we don't want to cover the arrow
+    padding-right: 3rem;
+    // @include transition( none );
+
+    // // safari only?
+    // option {
+    //   @include oswald-light;
+    // }
+
+    &:focus {
+      border: .2rem solid $hcs-blue;
+      outline: 0;
+    }
+}

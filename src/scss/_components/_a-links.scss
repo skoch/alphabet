@@ -1,0 +1,10 @@
+// Links
+a, a:hover, a:active, a:visited, a:link {
+  color: $hcs-blue;
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: color $transition;
+  &:hover {
+    color: $black;
+  }
+}

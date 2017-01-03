@@ -1,0 +1,12 @@
+<svg id="x-icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.85 72.85">
+    <defs>
+        <style>
+            .cls-1 {
+                fill: #231f20;
+            }
+        </style>
+    </defs>
+    <title>X Icon</title>
+    <polygon class="cls-1" points="11.28 0 0.01 11.27 50.31 61.57 61.57 72.85 72.79 61.62 72.74 61.57 72.79 61.51 11.28 0"/>
+    <polygon class="cls-1" points="72.85 11.28 61.58 0.01 11.28 50.31 0 61.57 11.23 72.79 11.28 72.74 11.33 72.79 72.85 11.28"/>
+</svg>

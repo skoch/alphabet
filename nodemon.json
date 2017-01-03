@@ -1,0 +1,18 @@
+{
+    "events": {
+        "restart": "browser-sync reload --port 3000"
+    },
+    "ext": "twig svg js",
+    "ignore": [
+        "/dist/images/svg/*.svg",
+        "/dist/js/*.js",
+        "/src"
+    ],
+    "watch": [
+        "app.js",
+        "bin",
+        "dist",
+        "routes",
+        "views"
+    ]
+}

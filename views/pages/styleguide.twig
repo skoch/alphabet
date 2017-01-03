@@ -1,0 +1,376 @@
+{# Styleguide #}
+
+{% extends 'layouts/layout.twig' %}
+
+{% block extras_header_code %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Oswald:300,400" rel="stylesheet">
+{% endblock %}
+
+{% block header %}
+    <header class="brand">
+        <img src="images/svg/logo-hcs-dark.svg">
+    </header>
+{% endblock %}
+
+{% block content %}
+
+<nav id="table-of-contents">
+    <a class="btn jump" href="#typography">Typography</a>
+    <a class="btn jump" href="#lists">Lists</a>
+    <a class="btn jump" href="#blockquotes">Blockquotes</a>
+    <a class="btn jump" href="#selects">Selects</a>
+    <a class="btn jump" href="#radios">Radios</a>
+    <a class="btn jump" href="#checkboxes">Checkboxes</a>
+    <a class="btn jump" href="#inputs">Inputs</a>
+    <a class="btn jump" href="#textareas">Textareas</a>
+    <a class="btn jump" href="#buttons">Buttons</a>
+    <a class="btn jump" href="#links">Links</a>
+    <a class="btn jump" href="#toggles">Toggles</a>
+    <a class="btn jump" href="#colors">Colors</a>
+</nav>
+
+<section id="typography">
+    <h2 class="section-header">Typography</h2>
+
+    <h3 class="section-subheader">Fonts</h3>
+    <div class="section-content section-content-col">
+        <div class="alphanumerics">
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ
+            <br>
+            abcdefghijklmnopqrstuvwxyz
+            <br>
+            1234567890 #@*!+&lt;&gt;
+        </div>
+    </div>
+
+    <h3 class="section-subheader">Headers</h3>
+    <div class="section-content section-content-col">
+        <h1>Header 1</h1>
+        <h2>Header 2</h2>
+        <h3>Header 3</h3>
+        <h4>Header 4</h4>
+        <h5>Header 5</h5>
+        <h6>Header 6</h6>
+    </div>
+
+    <h3 class="section-subheader">Paragraphs</h3>
+    <div class="section-content section-content-col">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+</section>
+
+<section id="lists">
+    <h2 class="section-header">Lists</h2>
+
+    <h3 class="section-subheader">Unordered List</h3>
+    <div class="section-content section-content-col">
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+
+    <h3 class="section-subheader">Ordered List</h3>
+    <div class="section-content section-content-col">
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ol>
+    </div>
+</section>
+
+<section id="blockquotes">
+    <h2 class="section-header">Blockquotes</h2>
+
+    <h3 class="section-subheader">Simple attribution (in HTML)</h3>
+    <div class="section-content section-content-col">
+        <blockquote cite="http://www.williammurraygolf.com/">
+            <p>The more relaxed you are, the better you are at everything.</p>
+        </blockquote>
+    </div>
+
+    <h3 class="section-subheader">Extented attribution</h3>
+    <div class="section-content section-content-col">
+        <blockquote>
+            <p>The more relaxed you are, the better you are at everything.</p>
+            <cite><a href="http://www.williammurraygolf.com/">&mdash; Bill Murray</a></cite>
+        </blockquote>
+    </div>
+
+    <h3 class="section-subheader">No attribution</h3>
+    <div class="section-content section-content-col">
+        <blockquote>
+            <p>The more relaxed you are, the better you are at everything.</p>
+        </blockquote>
+    </div>
+
+    <h3 class="section-subheader">Inline</h3>
+    <p>Bill said <q>The more relaxed you are, the better you are at everything.</q></p>
+
+</section>
+<section id="selects">
+    <h2 class="section-header">Selects</h2>
+    <div class="section-content section-content-col">
+        <select class="form-component__dropdown" name="select">
+            {# <option disabled selected value> -- Please select something -- </option> #}
+            <option value="1">Option 1</option>
+            <option value="2" selected>Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+        <select class="form-component__dropdown" name="select">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3" selected>Option 3</option>
+        </select>
+    </div>
+</section>
+<section id="radios">
+    <h2 class="section-header">Radios</h2>
+
+    <h3 class="section-subheader">Column</h3>
+    <div class="section-content section-content-col">
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" checked>Yes
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios2" value="2">No
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios3" value="3" disabled>Disabled
+            </label>
+        </div>
+    </div>
+
+    <h3 class="section-subheader">Row</h3>
+    <div class="section-content">
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadiosFlex" id="optionsRadiosFlex1" value="1">Yes
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadiosFlex" id="optionsRadiosFlex2" value="2" checked>No
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadiosFlex" id="optionsRadiosFlex3" value="3" disabled>Maybe
+            </label>
+        </div>
+    </div>
+
+</section>
+<section id="checkboxes">
+    <h2 class="section-header">Checkboxes</h2>
+
+    <h3 class="section-subheader">Column</h3>
+    <div class="section-content section-content-col">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" checked> iOS
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Android
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" disabled> Disabled
+            </label>
+        </div>
+    </div>
+
+    <h3 class="section-subheader">Row</h3>
+    <div class="section-content">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" checked> iOS
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Android
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" disabled> Disabled
+            </label>
+        </div>
+    </div>
+</section>
+
+<section id="inputs">
+    <h2 class="section-header">Inputs</h2>
+
+    <h3 class="section-subheader">Label</h3>
+    <div class="section-content section-content-col">
+        <div class="input">
+            <label for="inputEmail">Email</label>
+            <input type="text" class="" id="inputEmail" placeholder="">
+        </div>
+    </div>
+
+    <h3 class="section-subheader">Placeholder (No label)</h3>
+    <div class="section-content section-content-col">
+        <div class="input">
+            <input type="text" class="" id="inputFirstName" placeholder="First Name">
+        </div>
+    </div>
+
+    <h3 class="section-subheader">Simple</h3>
+    <div class="section-content section-content-col">
+        <div class="input">
+            <input type="text" class="" id="inputLastName">
+        </div>
+    </div>
+
+    <h3 class="section-subheader">Disabled</h3>
+    <div class="section-content section-content-col">
+        <div class="input">
+            <input type="text" class="" id="inputAddress" disabled>
+        </div>
+    </div>
+
+    <h3 class="section-subheader">Success</h3>
+    <div class="section-content section-content-col">
+        <div class="input has-success">
+            <input type="text" class="" id="inputLastName2">
+        </div>
+    </div>
+
+    <h3 class="section-subheader">Warning</h3>
+    <div class="section-content section-content-col">
+        <div class="input has-warning">
+            <input type="text" class="" id="inputLastName3">
+        </div>
+    </div>
+
+    <h3 class="section-subheader">Error</h3>
+    <div class="section-content section-content-col">
+        <div class="input has-error">
+            <input type="text" class="" id="inputLastName4">
+            <div class="error-msg">👆 There seems to be something wrong here.</div>
+        </div>
+    </div>
+</section>
+
+<section id="textareas">
+    <h2 class="section-header">Textareas</h2>
+
+    <h3 class="section-subheader">Label</h3>
+    <div class="section-content section-content-col">
+        <div class="textarea">
+            <label for="testTextArea1">Tell me your dreams...</label>
+            <textarea rows="5" id="testTextArea1"></textarea>
+            <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+        </div>
+    </div>
+
+    <h3 class="section-subheader">Placeholder (No label)</h3>
+    <div class="section-content section-content-col">
+        <div class="textarea">
+            <textarea rows="5" id="testTextArea2" placeholder="Tell me your dreams..."></textarea>
+        </div>
+    </div>
+
+    <h3 class="section-subheader">Simple</h3>
+    <div class="section-content section-content-col">
+        <div class="textarea">
+            <textarea rows="5" id="testTextArea3"></textarea>
+        </div>
+    </div>
+
+    <h3 class="section-subheader">Disabled</h3>
+    <div class="section-content section-content-col">
+        <div class="textarea">
+            <textarea rows="5" id="testTextArea4" disabled></textarea>
+        </div>
+    </div>
+</section>
+
+<section id="buttons">
+    <h2 class="section-header">Buttons</h2>
+
+    <h3 class="section-subheader">Default</h3>
+    <div class="section-content section-content-col">
+        <button class="btn">Default</button>
+    </div>
+</section>
+
+<section id="links">
+    <h2 class="section-header">Links</h2>
+
+    <h3 class="section-subheader">Default</h3>
+    <div class="section-content section-content-col">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud <a href="#">exercitation ullamco laboris</a> nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. <a href="#">Excepteur sint occaecat</a> cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+</section>
+
+<section id="toggles">
+    <h2 class="section-header">Toggles</h2>
+
+    <h3 class="section-subheader">Square</h3>
+    <div class="section-content section-content-col">
+        <label class="toggle">
+            <input type="checkbox">
+            <div class="slider"></div>
+        </label>
+    </div>
+
+    <h3 class="section-subheader">Rounded</h3>
+    <div class="section-content section-content-col">
+        <label class="toggle">
+            <input type="checkbox" checked>
+            <div class="slider round"></div>
+        </label>
+    </div>
+</section>
+
+<section id="colors">
+    <h2 class="section-header">Colors</h2>
+    <div class="section-content">
+        {% set colors = ['#FFFFFF', '#E0E0E0', '#757575', '#424242', '#000000', '#00D8E8', '#F04124', '#E99002', '#43AC6A'] %}
+        {% for color in colors %}
+        <div class="color-block">
+            <div class="color" style="background-color:{{color}}"></div>
+            <p class="hex">{{color}}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+
+{% endblock %}
+
+{% block footer %}
+<footer>&copy;2016 &mdash; Hard Candy Shell</footer>
+{% endblock %}
