@@ -2,6 +2,9 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
+    // node: {
+    //     fs: 'empty',
+    // },
     // tells your loaders that you're in debug mode
     debug: true,
 

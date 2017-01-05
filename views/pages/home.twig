@@ -1,0 +1,22 @@
+{% extends 'layouts/layout.twig' %}
+
+{% block extras_header_code %}
+    {# Bungee+Shade #}
+    <link href="https://fonts.googleapis.com/css?family=Gravitas+One" rel="stylesheet">
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<div data-on-transition-end="remove" class="intro">
+    <h1>The<br>Alphabet</h1>
+    <p>Choose a letter!</p>
+</div>
+<div class="letter-object fade" data-on-transition-perpetual="show">
+    <div class="letter"></div>
+    <div class="object"><img></div>
+</div>
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

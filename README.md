@@ -1,5 +1,5 @@
-# project-name
-Brief description of project
+# Alphabet
+Each letter of the alphabet is represented, choose a letter and random searches for specific nouns will display those objects.
 
 ## Dependencies
 

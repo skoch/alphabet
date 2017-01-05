@@ -8,8 +8,7 @@ var fs = require('fs');
 var auth = require('http-auth');
 
 // Pages
-var tableOfContents = require('./routes/table-of-contents');
-var styleguide = require('./routes/styleguide');
+var home = require('./routes/home');
 // ~ dynamically generated ~ 0 ~
 // ~ end dynamically generated ~
 
@@ -46,8 +45,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Define/declare routes
-app.use('/', tableOfContents);
-app.use('/styleguide', styleguide);
+app.use('/', home);
 // ~ dynamically generated ~ 1 ~
 // ~ end dynamically generated ~
 

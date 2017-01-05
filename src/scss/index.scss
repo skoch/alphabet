@@ -9,13 +9,12 @@
 @import "_setup/global";
 // @import "_setup/*.scss";
 
-.icon-check {
-    fill: white;
-    width: 40px;
-    height: 40px;
-}
+// .icon-check {
+//     fill: white;
+//     width: 40px;
+//     height: 40px;
+// }
 
 // @import "_blank";
-@import "styleguide";
-@import "table-of-contents";
 @import "components";
+@import "home";

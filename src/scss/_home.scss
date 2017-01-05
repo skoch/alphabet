@@ -1,0 +1,53 @@
+// html, body {
+//     background: $white;
+//     color: $black;
+//     font-size: 62.5%;
+//     // normalize was updated to use 1.15 so this resets
+//     line-height: normal;
+// }
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    background: $white;
+    // padding-left: 2rem;
+
+    .intro {
+        @include transition( opacity 0.15s ease-out );
+        // z-index: 1;
+    }
+    .letter-object {
+        @include transition( opacity 0.15s ease-out );
+        overflow: hidden;
+        .letter {
+            // @include transition( opacity 0.15s ease-out );
+            font-size: 30rem;
+            // color: $white;
+            user-select: none;
+            cursor: default;
+            padding-left: 5rem;
+            // z-index: 2;
+
+            // &.fade {
+            //   opacity: 0;
+            //   // transform-origin: 0 50%;
+
+            //   &.in {
+            //     opacity: 1;
+            //   }
+            // }
+        }
+        .object {
+            // max-width: 50rem;
+            // position: absolute;
+            // @include transition( opacity 0.15s ease-out );
+            // overflow: hidden;
+            position: relative;
+            margin-top: -20rem;
+            // z-index: 0;
+        }
+    }
+}

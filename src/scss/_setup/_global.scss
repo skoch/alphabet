@@ -1,6 +1,14 @@
 html, body {
   @include font-smoothing;
   @include transition( opacity 0.3s ease-out );
+  // font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
+  @include google-font;
+  font-size: 62.5%;
+  background: $white;
+  color: $black;
+  // normalize was updated to use 1.15 so this resets
+  line-height: normal;
+  letter-spacing: 0.02em;
 }
 
 *, *:before, *:after {
@@ -20,7 +28,7 @@ video.responsive-video {
 
 .fade {
   opacity: 0;
-  transform-origin: 0 50%;
+  // transform-origin: 0 50%;
 
   &.in {
     opacity: 1;
