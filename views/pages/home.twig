@@ -8,14 +8,28 @@
 {% block header %}{% endblock %}
 
 {% block content %}
-<div data-on-transition-end="remove" class="intro">
+
+<div class="title">The Alphabet</div>
+{% for item in alphabet %}
+
+<div class="content fade letter-{{ item.letter }}">
+    {# <span class="end"></span> #}
+    <div class="word fade"><span class="first">{{ item.letter|upper }}</span></div>
+    <div class="object">
+        <img src="images/{{ item.letter }}/{{item.object}}.png">
+    </div>
+</div>
+
+{% endfor %}
+
+{# <div data-on-transition-end="remove" class="intro">
     <h1>The<br>Alphabet</h1>
     <p>Choose a letter!</p>
 </div>
 <div class="letter-object fade" data-on-transition-perpetual="show">
     <div class="letter fade"></div>
     <div class="object"><img></div>
-</div>
+</div> #}
 {# <div class="color-test">
     <img src="images/z/zebra.png">
 </div> #}

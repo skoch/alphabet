@@ -1,6 +1,7 @@
 @charset "UTF-8";
 // Importing normalize from node_modules, with auto init
 @import "~normalize-scss/sass/normalize/_import-now";
+@import "~csshake/scss/csshake";
 
 @import "_setup/colors";
 @import "_setup/variables";
