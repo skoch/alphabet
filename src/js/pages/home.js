@@ -6,8 +6,6 @@ import $ from 'jquery';
 import HumanInput from 'humaninput/dist/humaninput-full.min';
 
 const transitions = require('../components/css-transitions');
-// const average = require('image-average-color');
-// const fs = require('fs');
 
 const ColorThief = require('color-thief-browser');
 
@@ -18,8 +16,6 @@ var godMode;
 var signals;
 var currentLetter;
 var currentSelection;
-
-// console.log('home.js fs', fs.readFile);
 
 function _setActiveObject() {
     const choices = $(`.letter-${currentLetter}`);
@@ -41,6 +37,8 @@ function _setActiveObject() {
         const img = $(currentSelection).find('img');
         const colors = colorThief.getPalette(img[0], 2);
         $('.word').css({
+            // textShadow: `6px 4px 20px rgba(${colors[2][0]},
+            // ${colors[2][1]}, ${colors[2][2]}, 1)`,
             color: `rgba(${colors[0][0]}, ${colors[0][1]}, ${colors[0][2]}, 1)`,
         });
         $('.home').css({
@@ -79,18 +77,17 @@ function _whatKey(event, key, code) {
         //     return;
         // }
         // if the keypress === current letter and it's not yet in
-        const sel = $(currentSelection);
-        if (key === currentLetter) {
-            if (!sel.find('.word').hasClass('in')) {
-                sel.find('.word').addClass('in');
-                // sel.find('img').removeClass('shake-horizontal shake-constant');
-            }
-        } else {
-            // sel.find('img').addClass('shake-horizontal shake-constant');
-        }
-        // currentLetter = key;
-
-        // _setActiveObject();
+        // const sel = $(currentSelection);
+        // if (key === currentLetter) {
+        //     if (!sel.find('.word').hasClass('in')) {
+        //         sel.find('.word').addClass('in');
+        //         // sel.find('img').removeClass('shake-horizontal shake-constant');
+        //     }
+        // } else {
+        //     // sel.find('img').addClass('shake-horizontal shake-constant');
+        // }
+        currentLetter = key;
+        _setActiveObject();
     }
 }
 
