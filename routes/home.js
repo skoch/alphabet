@@ -1,80 +1,14 @@
-var Express = require('express');
+var express = require('express');
 
-var router = Express.Router();
+var router = express.Router();
 
-const alphabet = [
-    { letter: 'a', object: 'apple' },
-    { letter: 'a', object: 'alligator' },
-    { letter: 'b', object: 'banana' },
-    { letter: 'b', object: 'bear-alt' },
-    { letter: 'b', object: 'bread' },
-    { letter: 'b', object: 'butter' },
-    { letter: 'c', object: 'carrot' },
-    { letter: 'c', object: 'cow' },
-    { letter: 'd', object: 'duck' },
-    { letter: 'd', object: 'dandelion' },
-    { letter: 'd', object: 'dolphin' },
-    { letter: 'e', object: 'eggplant' },
-    { letter: 'e', object: 'eggs' },
-    { letter: 'e', object: 'elephant' },
-    { letter: 'f', object: 'fig' },
-    { letter: 'f', object: 'fox' },
-    { letter: 'f', object: 'fish' },
-    { letter: 'f', object: 'frog' },
-    { letter: 'f', object: 'feather' },
-    { letter: 'g', object: 'garlic' },
-    { letter: 'g', object: 'glasses' },
-    { letter: 'g', object: 'giraffe' },
-    { letter: 'g', object: 'goldfish' },
-    { letter: 'g', object: 'goat' },
-    { letter: 'h', object: 'honey' },
-    { letter: 'h', object: 'honeydew' },
-    { letter: 'h', object: 'horse' },
-    { letter: 'i', object: 'iguana-alt' },
-    { letter: 'j', object: 'jaguar-alt' },
-    { letter: 'k', object: 'kangaroo' },
-    { letter: 'l', object: 'lion' },
-    // { letter: 'm', object: 'meerkat-alt' },
-    { letter: 'm', object: 'monkey' },
-    { letter: 'm', object: 'mouse' },
-    { letter: 'm', object: 'matches' },
-    { letter: 'n', object: 'nectarine' },
-    { letter: 'n', object: 'newspaper' },
-    { letter: 'o', object: 'octopus-alt' },
-    { letter: 'o', object: 'owl' },
-    { letter: 'o', object: 'orange' },
-    { letter: 'o', object: 'onion' },
-    { letter: 'p', object: 'penguin' },
-    { letter: 'p', object: 'pig' },
-    { letter: 'q', object: 'quince' },
-    { letter: 'q', object: 'quarter' },
-    { letter: 'r', object: 'rattlesnake' },
-    { letter: 'r', object: 'rabbit' },
-    { letter: 'r', object: 'rooster' },
-    { letter: 's', object: 'sheep' },
-    { letter: 't', object: 'tomato' },
-    { letter: 't', object: 'tree' },
-    { letter: 't', object: 'tarantula' },
-    { letter: 't', object: 'tiger-alt' },
-    { letter: 't', object: 'turtle' },
-    { letter: 'u', object: 'umbrella' },
-    { letter: 'v', object: 'vulture' },
-    { letter: 'w', object: 'woodpecker' },
-    { letter: 'w', object: 'watermelon' },
-    { letter: 'x', object: 'xylophone' },
-    { letter: 'y', object: 'yam' },
-    // { letter: 'y', object: 'yogurt' },
-    { letter: 'z', object: 'zebra' },
-];
-
-/* GET home page. */
+/* GET home. */
 router.get('/', function(req, res, next) {
     res.render('pages/home', {
-        title: 'Alphabet',
-        htmlClass: '',
+        title: 'Hard Candy Shell - home',
         bodyClass: 'home fade',
+        htmlClass: 'home-background',
         pageJs: 'home',
-        alphabet: alphabet,
     });
 });
 

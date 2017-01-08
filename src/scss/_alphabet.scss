@@ -1,0 +1,94 @@
+// html, body {
+//     background: $white;
+//     color: $black;
+//     font-size: 62.5%;
+//     // normalize was updated to use 1.15 so this resets
+//     line-height: normal;
+// }
+
+.alphabet {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100vh;
+    // padding: 0 2rem;
+    // overflow: hidden;
+    // background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(66,185,232,1) 50%,rgba(125,185,232,1) 100%);
+    // background: linear-gradient(to bottom, rgba(207,203,188,1) 0%,rgba(207,203,188,1) 50%,rgba(185,189,179,1) 50%,rgba(185,189,179,1) 100%);
+    background: linear-gradient(to bottom, $woodpecker-1 0%, $woodpecker-1 50%, $woodpecker-2 50%, $woodpecker-2 100%);
+
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        font-size: 6rem;
+        color: $woodpecker-0;
+
+        @media ( max-width: $mobile-breakpoint ) {
+            font-size: 2.5rem;
+        }
+        // background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(30,87,153,1) 50%,rgba(125,185,232,1) 50%,rgba(125,185,232,1) 100%);
+    }
+    .content {
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        padding: 0 2rem;
+        overflow: hidden;
+        @include transition( opacity 0.15s ease-out );
+        // background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(30,87,153,1) 50%,rgba(125,185,232,1) 50%,rgba(125,185,232,1) 100%);
+
+        &.fade {
+            opacity: 0;
+            &.in {
+              opacity: 1;
+            }
+        }
+
+        .word {
+            position: relative;
+            align-self: flex-start;
+            font-size: 12rem;
+            letter-spacing: -0.5rem;
+            z-index: 0;
+            @include transition( opacity 0.15s ease-out );
+            .letter {
+                &.upper {
+                    font-size: 30rem;
+                    @media ( max-width: $mobile-breakpoint ) {
+                        font-size: 22rem;
+                    }
+                }
+                &.lower {
+                    font-size: 20rem;
+                    @media ( max-width: $mobile-breakpoint ) {
+                        font-size: 15rem;
+                    }
+                }
+            }
+            span.end {
+                font-size: 6rem;
+                @media ( max-width: $mobile-breakpoint ) {
+                    font-size: 4rem;
+                }
+            }
+
+        }
+        .object {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            z-index: 1;
+            margin-top: -10rem;
+            img {
+
+            }
+        }
+    }
+}

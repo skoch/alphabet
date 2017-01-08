@@ -9,6 +9,7 @@ var auth = require('http-auth');
 
 // Pages
 var home = require('./routes/home');
+var alphabet = require('./routes/alphabet');
 // ~ dynamically generated ~ 0 ~
 // ~ end dynamically generated ~
 
@@ -46,6 +47,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Define/declare routes
 app.use('/', home);
+app.use('/alphabet', alphabet);
 // ~ dynamically generated ~ 1 ~
 // ~ end dynamically generated ~
 
