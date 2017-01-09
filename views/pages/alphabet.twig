@@ -9,15 +9,24 @@
 
 {% block content %}
 
+{# single #}
+{# <div class="content fade" data-letter="{{ letter }}">
+    <div class="word"><span class="letter upper">{{ letter|upper }}</span></div>
+    <div class="object">
+        <img src="/images/{{ letter }}/{{ random(images[letter]) }}.png">
+    </div>
+</div> #}
+
 {# <div class="title">The Alphabet</div> #}
+{# all at once #}
 {% for item in alphabet %}
 
 <div class="content fade letter-{{ item.letter }}">
     {# <span class="end"></span> #}
     {# <span class="letter lower">{{ item.letter }}</span> #}
-    <div class="word"><span class="letter upper">{{ item.letter|upper }}</span></div>
+    <div class="word fade"><span class="letter upper">{{ item.letter|upper }}</span></div>
     <div class="object">
-        <img src="images/{{ item.letter }}/{{item.object}}.png">
+        <img src="/images/{{ item.letter }}/{{ item.object }}.png">
     </div>
 </div>
 

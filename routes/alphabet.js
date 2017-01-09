@@ -22,6 +22,7 @@ const alphabet = [
     { letter: 'e', object: 'eggplant' },
     { letter: 'e', object: 'eggs' },
     { letter: 'e', object: 'elephant' },
+    { letter: 'e', object: 'eagle-alt' },
     { letter: 'f', object: 'fig' },
     { letter: 'f', object: 'fox' },
     { letter: 'f', object: 'fish' },
@@ -90,7 +91,13 @@ const alphabet = [
     { letter: 'z', object: 'zebra' },
 ];
 
-/* GET home page. */
+const images = {
+    t: ['trumpet', 'telephone'],
+    w: ['woodpecker', 'watermelon', 'wolf'],
+};
+
+/* GET alphabet page. */
+// router.get('/:letter([a-z]{1})', function(req, res, next) {
 router.get('/', function(req, res, next) {
     res.render('pages/alphabet', {
         title: 'Alphabet',
@@ -98,6 +105,8 @@ router.get('/', function(req, res, next) {
         bodyClass: 'alphabet',
         pageJs: 'alphabet',
         alphabet: alphabet,
+        // images: images,
+        // letter: req.params.letter,
     });
 });
 

@@ -55,10 +55,11 @@
             font-size: 12rem;
             letter-spacing: -0.5rem;
             z-index: 0;
+            margin-top: -2rem;
             @include transition( opacity 0.15s ease-out );
             .letter {
                 &.upper {
-                    font-size: 30rem;
+                    font-size: 40rem;
                     @media ( max-width: $mobile-breakpoint ) {
                         font-size: 22rem;
                     }
@@ -85,7 +86,7 @@
 
             position: relative;
             z-index: 1;
-            margin-top: -10rem;
+            margin-top: -20rem;
             img {
 
             }

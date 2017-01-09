@@ -19,10 +19,13 @@ var currentLetter;
 var currentSelection;
 
 function _setActiveObject() {
+    // for single, we only need to keep the `previousSelection` here
     const choices = $(`.letter-${currentLetter}`);
     const previousSelection = currentSelection;
     const selection = choices[Math.floor(Math.random() * choices.length)];
     currentSelection = selection;
+    // single
+    // currentSelection = $('.content');
     // console.log('selection', selection);
 
     // if (!$('.title').hasClass('fade')) {
@@ -32,7 +35,6 @@ function _setActiveObject() {
         $(previousSelection).removeClass('in');
         $(previousSelection).find('.word').removeClass('in');
     }
-
 
     setTimeout(() => {
         const img = $(currentSelection).find('img');
@@ -70,6 +72,7 @@ function _whatKey(event, key, code) {
     // if (!godMode) {
     //     return;
     // }
+    // const regex = /^[a-z]$/;
     const regex = /^[a-z]$/;
     if (regex.test(key)) {
         // if (currentLetter === key) {
@@ -85,6 +88,8 @@ function _whatKey(event, key, code) {
         // } else {
         //     // sel.find('img').addClass('shake-horizontal shake-constant');
         // }
+
+        // for younger kids, random selection of selected letter
         currentLetter = key;
         _setActiveObject();
     }
@@ -108,11 +113,9 @@ module.exports = {
         console.log('  === home ===');
         signals = config.signals;
 
-        // const $colorTest = $('.color-test');
-        // const $image = $colorTest.find('img');
-        // console.log('$image', $image);
-        // console.log('$image[0]', $image[0]);
-        // console.log('colorThief', colorThief.getColor($('.color-test').find('img')[0]));
+        // single
+        // currentLetter = $('.content').data('letter');
+        // _setActiveObject();
 
         // hi.on('ctrl-1', _showLetter);
         // hi.on('ctrl-g', _toggleGodMode);
@@ -123,7 +126,7 @@ module.exports = {
         // $('.object').click(_objectClick);
         setTimeout(() => {
             hi.trigger('space');
-        }, 500);
+        }, 750);
         // transitions.init();
         // transitions.config.signals['onCssTransitionEnd'].add((o) => {
         //     switch (o.data) {
