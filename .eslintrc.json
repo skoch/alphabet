@@ -38,6 +38,7 @@
         "react/require-extension": 0,
         "space-before-function-paren": ["error", "never"],
         "space-in-parens": 0,
+        "max-len": 0,
         "vars-on-top": 1
     }
 }

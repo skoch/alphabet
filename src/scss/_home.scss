@@ -11,19 +11,19 @@
     width: 100vw;
     height: 100vh;
 
-    background: linear-gradient(to bottom, $woodpecker-1 0%, $woodpecker-1 50%, $woodpecker-2 50%, $woodpecker-2 100%);
+    background: linear-gradient(to bottom, $start-1 0%, $start-1 50%, $start-2 50%, $start-2 100%);
     .nav-link {
         padding: 2rem;
         // text-align: center;
         // display: block;
         // width: 100%;
         font-size: 6rem;
-        color: $woodpecker-0;
+        color: $start-0;
         transition: background $transition;
         // font-size: 30rem;
-        background: linear-gradient(to bottom, $woodpecker-2 0%, $woodpecker-2 50%, $woodpecker-1 50%, $woodpecker-1 100%);
+        background: linear-gradient(to bottom, $start-2 0%, $start-2 50%, $start-1 50%, $start-1 100%);
         &:hover {
-            color: $woodpecker-0;
+            color: $start-0;
             background: none;
         }
     }

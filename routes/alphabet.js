@@ -1,8 +1,9 @@
 var Express = require('express');
+var fs = require('fs');
 
 var router = Express.Router();
 
-const alphabet = [
+const imageMap = [
     { letter: 'a', object: 'apple' },
     { letter: 'a', object: 'alligator' },
     { letter: 'a', object: 'ant' },
@@ -91,22 +92,57 @@ const alphabet = [
     { letter: 'z', object: 'zebra' },
 ];
 
-const images = {
-    t: ['trumpet', 'telephone'],
-    w: ['woodpecker', 'watermelon', 'wolf'],
-};
+// const images = {
+//     a: ['apple', 'alligator', 'ant'],
+//     b: ['banana', 'bear-alt', 'bread', 'butter', 'butterfly'],
+//     c: ['carrot', 'cow', 'crow', 'cat'],
+//     d: ['duck', 'dandelion', 'dolphin', 'dog'],
+//     e: ['eggplant', 'eggs', 'elephant', 'eagle-alt'],
+//     f: ['fig', 'fox', 'fish', 'frog', 'feather'],
+//     g: ['garlic', 'glasses', 'giraffe', 'goldfish', 'goat'],
+//     h: ['honey', 'honeydew', 'horse', 'hammer'],
+//     i: ['iguana-alt', 'ice-cream'],
+//     j: ['jaguar-alt'],
+//     k: ['kangaroo', 'key', 'knife'],
+//     l: ['lion', 'lemon', 'leaves', 'lollipop'],
+//     m: ['monkey', 'mouse', 'matches'],
+//     n: ['nectarine', 'newspaper', 'nickel'],
+//     o: ['octopus-alt', 'owl', 'orange', 'onion'],
+//     p: ['penguin', 'pig', 'pineapple-alt', 'pear', 'peanut'],
+//     q: ['quince', 'quarter'],
+//     r: ['rattlesnake', 'rabbit', 'rooster'],
+//     s: ['sheep', 'shells', 'ship', 'stones'],
+//     t: ['tomato', 'tree', 'tarantula', 'tiger-alt', 'turtle', 'trumpet', 'telephone'],
+//     u: ['umbrella'],
+//     v: ['vulture', 'violin'],
+//     w: ['woodpecker', 'watermelon', 'wolf'],
+//     x: ['xylophone'],
+//     y: ['yam'],
+//     z: ['zebra'],
+// };
+
+const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
 /* GET alphabet page. */
 // router.get('/:letter([a-z]{1})', function(req, res, next) {
 router.get('/', function(req, res, next) {
+    // const letter = alphabet[Math.floor(Math.random() * alphabet.length)];
+    // const letterImages = images[letter];
+    // const image = letterImages[Math.floor(Math.random() * letterImages.length)];
+
+    // console.log('Cookies: ', req.cookies.fontColor);
+
+    // _writeNewBackgroundScss(req.cookies.gradientStartColor, req.cookies.gradientEndColor);
+
     res.render('pages/alphabet', {
         title: 'Alphabet',
         htmlClass: '',
         bodyClass: 'alphabet',
         pageJs: 'alphabet',
         alphabet: alphabet,
-        // images: images,
-        // letter: req.params.letter,
+        // imageMap: imageMap,
+        // image: image,
+        // active: letter,
     });
 });
 
