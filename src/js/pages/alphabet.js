@@ -185,7 +185,7 @@ function _setMode(event, key, code) {
     _mode = parseInt(key, 0);
     // remove or add the word/letter
     // const $word = $('.content').find('.word');
-    const $word = $(`.container[data-letter*='${currentLetter}']`).find('.word');
+    const $word = $('.container').find('.word');
     if (_mode === 1) {
         $word.removeClass('fade');
     } else {
