@@ -20,6 +20,8 @@ var currentLetter;
 var currentSelection;
 
 function _setActiveObject() {
+    // storage
+    localStorage.currentLetter = currentLetter;
     // for single, we only need to keep the `previousSelection` here
     const choices = $(`.letter-${currentLetter}`);
     const previousSelection = currentSelection;
@@ -43,13 +45,17 @@ function _setActiveObject() {
     setTimeout(() => {
         const img = $(currentSelection).find('img');
         const colors = colorThief.getPalette(img[0], 2);
+        // storage
+        localStorage.fontColor = `rgba(${colors[0][0]}, ${colors[0][1]}, ${colors[0][2]}, 1)`;
+        localStorage.gradientStartColor = `rgba(${colors[1][0]}, ${colors[1][1]}, ${colors[1][2]}, 1)`;
+        localStorage.gradientEndColor = `rgba(${colors[2][0]}, ${colors[2][1]}, ${colors[2][2]}, 1)`;
         $('.word').css({
             // textShadow: `6px 4px 20px rgba(${colors[2][0]},
             // ${colors[2][1]}, ${colors[2][2]}, 1)`,
-            color: `rgba(${colors[0][0]}, ${colors[0][1]}, ${colors[0][2]}, 1)`,
+            color: localStorage.fontColor,
         });
         $('.alphabet').css({
-            background: `linear-gradient(to bottom, rgba(${colors[1][0]}, ${colors[1][1]}, ${colors[1][2]},1) 0%,rgba(${colors[1][0]}, ${colors[1][1]}, ${colors[1][2]},1) 50%,rgba(${colors[2][0]}, ${colors[2][1]}, ${colors[2][2]},1) 50%,rgba(${colors[2][0]}, ${colors[2][1]}, ${colors[2][2]},1) 100%)`,
+            background: `linear-gradient(to bottom, ${localStorage.gradientStartColor} 0%, ${localStorage.gradientStartColor} 50%, ${localStorage.gradientEndColor} 50%, ${localStorage.gradientEndColor} 100%)`,
         });
         // $('.content').css({
         //     background: `linear-gradient(to bottom, rgba(${colors[1][0]}, ${colors[1][1]},
@@ -142,7 +148,6 @@ module.exports = {
         // single
         // currentLetter = $('.content').data('letter');
         // _setActiveObject();
-
         // hi.on('ctrl-1', _showLetter);
         hi.on('ctrl-1', _setMode);
         hi.on('ctrl-2', _setMode);
