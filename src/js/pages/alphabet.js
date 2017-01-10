@@ -13,6 +13,7 @@ const colorThief = new ColorThief();
 const hi = new HumanInput(window);
 const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
+var _mode = 1;
 var godMode;
 var signals;
 var currentLetter;
@@ -33,7 +34,10 @@ function _setActiveObject() {
     // }
     if (previousSelection) {
         $(previousSelection).removeClass('in');
-        $(previousSelection).find('.word').removeClass('in');
+        // remove word/letter
+        if (_mode === 2) {
+            $(previousSelection).find('.word').removeClass('in');
+        }
     }
 
     setTimeout(() => {
@@ -47,9 +51,12 @@ function _setActiveObject() {
         $('.alphabet').css({
             background: `linear-gradient(to bottom, rgba(${colors[1][0]}, ${colors[1][1]}, ${colors[1][2]},1) 0%,rgba(${colors[1][0]}, ${colors[1][1]}, ${colors[1][2]},1) 50%,rgba(${colors[2][0]}, ${colors[2][1]}, ${colors[2][2]},1) 50%,rgba(${colors[2][0]}, ${colors[2][1]}, ${colors[2][2]},1) 100%)`,
         });
-        $('.content').css({
-            background: `linear-gradient(to bottom, rgba(${colors[1][0]}, ${colors[1][1]}, ${colors[1][2]},1) 0%,rgba(${colors[1][0]}, ${colors[1][1]}, ${colors[1][2]},1) 50%,rgba(${colors[2][0]}, ${colors[2][1]}, ${colors[2][2]},1) 50%,rgba(${colors[2][0]}, ${colors[2][1]}, ${colors[2][2]},1) 100%)`,
-        });
+        // $('.content').css({
+        //     background: `linear-gradient(to bottom, rgba(${colors[1][0]}, ${colors[1][1]},
+        // ${colors[1][2]},1) 0%,rgba(${colors[1][0]}, ${colors[1][1]},
+        // ${colors[1][2]},1) 50%,rgba(${colors[2][0]}, ${colors[2][1]}, ${colors[2][2]},1)
+        // 50%,rgba(${colors[2][0]}, ${colors[2][1]}, ${colors[2][2]},1) 100%)`,
+        // });
         // if (currentLetter === 'w') {
         //     console.log('colors[0]', colors[0]);
         //     console.log('colors[1]', colors[1]);
@@ -78,25 +85,44 @@ function _whatKey(event, key, code) {
         // if (currentLetter === key) {
         //     return;
         // }
-        // if the keypress === current letter and it's not yet in
-        // const sel = $(currentSelection);
-        // if (key === currentLetter) {
-        //     if (!sel.find('.word').hasClass('in')) {
-        //         sel.find('.word').addClass('in');
-        //         // sel.find('img').removeClass('shake-horizontal shake-constant');
-        //     }
-        // } else {
-        //     // sel.find('img').addClass('shake-horizontal shake-constant');
-        // }
+        switch (_mode) {
+        case 1 :
+            // for younger kids, random selection of selected letter
+            currentLetter = key;
+            _setActiveObject();
+            break;
+        case 2 : {
+            // if the keypress === current letter and it's not yet in
+            const sel = $(currentSelection);
+            if (key === currentLetter) {
+                if (!sel.find('.word').hasClass('in')) {
+                    sel.find('.word').addClass('in');
+                    // sel.find('img').removeClass('shake-horizontal shake-constant');
+                }
+            } else {
+                // sel.find('img').addClass('shake-horizontal shake-constant');
+            }
+        }
+            break;
+        default :
+            throw new Error('No case for mode', _mode);
+        }
+    }
+}
 
-        // for younger kids, random selection of selected letter
-        currentLetter = key;
-        _setActiveObject();
+function _setMode(event, key, code) {
+    // console.log('key, code', key, code);
+    _mode = parseInt(key, 0);
+    // remove or add the word/letter
+    const $word = $('.content').find('.word');
+    if (_mode === 1) {
+        $word.removeClass('fade');
+    } else {
+        $word.addClass('fade');
     }
 }
 
 function _showLetter(event, key, code) {
-    console.log('_showLetter');
     if (!$(currentSelection).find('.word').hasClass('in')) {
         $(currentSelection).find('.word').addClass('in');
     }
@@ -118,6 +144,8 @@ module.exports = {
         // _setActiveObject();
 
         // hi.on('ctrl-1', _showLetter);
+        hi.on('ctrl-1', _setMode);
+        hi.on('ctrl-2', _setMode);
         // hi.on('ctrl-g', _toggleGodMode);
         // you have to enable godMode in order to use the keys for display
         hi.on('keydown', _whatKey);

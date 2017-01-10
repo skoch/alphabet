@@ -99,6 +99,7 @@ const images = {
 /* GET alphabet page. */
 // router.get('/:letter([a-z]{1})', function(req, res, next) {
 router.get('/', function(req, res, next) {
+    console.log('Cookies: ', req.cookies);
     res.render('pages/alphabet', {
         title: 'Alphabet',
         htmlClass: '',
