@@ -7,7 +7,8 @@ module.exports = {
         console.log( '  === home ===' );
         signals = config.signals;
 
+        $('.nav-link').addClass('in');
         // this isn't always needed
-        signals['domReady'].dispatch();
+        // signals['domReady'].dispatch();
     },
 };

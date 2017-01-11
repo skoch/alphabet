@@ -5,8 +5,8 @@ var router = express.Router();
 /* GET home. */
 router.get('/', function(req, res, next) {
     res.render('pages/home', {
-        title: 'Hard Candy Shell - home',
-        bodyClass: 'home fade',
+        title: 'The Alphabet',
+        bodyClass: 'home',
         htmlClass: 'home-background',
         pageJs: 'home',
     });

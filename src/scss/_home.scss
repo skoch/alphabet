@@ -19,12 +19,12 @@
         // width: 100%;
         font-size: 6rem;
         color: $start-0;
-        transition: background $transition;
+        transition: opacity $transition;
         // font-size: 30rem;
-        background: linear-gradient(to bottom, $start-2 0%, $start-2 50%, $start-1 50%, $start-1 100%);
+        // background: linear-gradient(to bottom, $start-2 0%, $start-2 50%, $start-1 50%, $start-1 100%);
         &:hover {
             color: $start-0;
-            background: none;
+            // background: none;
         }
     }
 }

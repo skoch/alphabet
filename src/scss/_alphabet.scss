@@ -31,9 +31,11 @@
         padding: 0 2rem;
         overflow: hidden;
         opacity: 0;
-        @include transition( opacity 0.15s ease-out );
+        transition: opacity 0.15s ease-out;
 
         &.active {
+            transition: opacity 0.15s ease-out;
+            // transition-delay: 1s;
             opacity: 1;
         }
 
@@ -44,7 +46,7 @@
             letter-spacing: -0.5rem;
             z-index: 0;
             margin-top: -5rem;
-            @include transition( opacity 0.15s ease-out );
+            transition: opacity 0.15s ease-out;
             .letter {
                 &.upper {
                     font-size: 40rem;
