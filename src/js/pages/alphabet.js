@@ -41,6 +41,7 @@ const images = {
 var signals;
 var godMode;
 var mode = 1;
+var currentIndex;
 var currentLetter;
 var currentSelection;
 
@@ -50,6 +51,7 @@ function randomLetter() {
 
 function setActiveObject(letter = randomLetter()) {
     currentLetter = letter;
+    currentIndex = alphabet.indexOf(currentLetter);
 
     const letterImages = images[currentLetter];
     const image = letterImages[Math.floor(Math.random() * letterImages.length)];
@@ -102,7 +104,19 @@ function shake() {
 }
 
 function space(event, key, code) {
-    setActiveObject();
+    // setActiveObject();
+    switch (mode) {
+        case 1 : {
+            // currentIndex++;
+            // currentIndex %= 26;
+            // next letter in the alphabet
+            const letter = alphabet.split('')[++currentIndex % 26];
+            setActiveObject(letter);
+        }
+            break;
+        default :
+            setActiveObject();
+    }
 }
 
 function whatKey(event, key, code) {
@@ -116,32 +130,39 @@ function whatKey(event, key, code) {
         // }
         switch (mode) {
             case 1 :
-                // for younger kids, random selection of selected letter
+                console.log('Do nothing for mode', mode);
+                break;
+            case 2 :
                 setActiveObject(key);
                 break;
-            case 2 : {
+            case 3 : {
                 // if the keypress === current letter and it's not yet in
                 const $sel = $(currentSelection);
                 if (key === currentLetter && !$sel.find('.word').hasClass('in')) {
                     $sel.find('.word').addClass('in');
-                } else {
+                } else if (!$sel.find('.word').hasClass('in')) {
                     shake();
                 }
             }
                 break;
             default :
+
         }
     }
 }
 
 function setMode(event, key, code) {
     // console.log('key, code', key, code);
-    mode = parseInt(key, 0);
+    mode = parseInt(key, 10);
+    console.log('mode', mode);
     // remove or add the word/letter
     const $word = $('.container').find('.word');
     if (mode === 1) {
         $word.removeClass('fade');
-    } else {
+        setActiveObject('a');
+    } else if (mode === 2) {
+        $word.removeClass('fade');
+    } else if (mode === 3) {
         $word.addClass('fade');
     }
 }
@@ -158,16 +179,23 @@ function showLetter(event, key, code) {
 
 module.exports = {
     init: function(config) {
-        console.log('  === alphabet ===');
+        console.log('  === alphabet ===', mode);
         signals = config.signals;
 
         // hi.on('ctrl-1', showLetter);
         hi.on('ctrl-1', setMode);
         hi.on('ctrl-2', setMode);
+        hi.on('ctrl-3', setMode);
         // hi.on('ctrl-g', toggleGodMode);
         hi.on('keydown', whatKey);
         hi.on('space', space);
 
-        setActiveObject();
+        switch (mode) {
+            case 1 :
+                setActiveObject('a');
+                break;
+            default :
+                setActiveObject();
+        }
     },
 };
