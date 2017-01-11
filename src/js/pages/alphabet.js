@@ -157,13 +157,20 @@ function setMode(event, key, code) {
     console.log('mode', mode);
     // remove or add the word/letter
     const $word = $('.container').find('.word');
-    if (mode === 1) {
-        $word.removeClass('fade');
-        setActiveObject('a');
-    } else if (mode === 2) {
-        $word.removeClass('fade');
-    } else if (mode === 3) {
-        $word.addClass('fade');
+    switch (mode) {
+        case 1 :
+            $word.removeClass('fade');
+            setActiveObject('a');
+            break;
+        case 2 :
+            $word.removeClass('fade');
+            setActiveObject();
+            break;
+        case 3 :
+            $word.addClass('fade');
+            setActiveObject();
+            break;
+        default :
     }
 }
 
