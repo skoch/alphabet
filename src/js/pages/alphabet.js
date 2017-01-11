@@ -45,6 +45,15 @@ var currentIndex;
 var currentLetter;
 var currentSelection;
 
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length === 1 ? `0${hex}` : hex;
+}
+
+function rgbToHex(r, g, b) {
+    return `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`;
+}
+
 function randomLetter() {
     return alphabet[Math.floor(Math.random() * alphabet.length)];
 }
@@ -83,7 +92,21 @@ function setActiveObject(letter = randomLetter()) {
         localStorage.fontColor = `rgba(${colors[0][0]}, ${colors[0][1]}, ${colors[0][2]}, 1)`;
         localStorage.gradientStartColor = `rgba(${colors[1][0]}, ${colors[1][1]}, ${colors[1][2]}, 1)`;
         localStorage.gradientEndColor = `rgba(${colors[2][0]}, ${colors[2][1]}, ${colors[2][2]}, 1)`;
-
+        // console.log(`$${image}-1:`, rgbToHex(colors[0][0], colors[0][1], colors[0][2]));
+        // console.log(`$${image}-2:`, rgbToHex(colors[1][0], colors[1][1], colors[1][2]));
+        // console.log(`$${image}-3:`, rgbToHex(colors[2][0], colors[2][1], colors[2][2]));
+        console.log('.home {');
+        console.log(`    background: linear-gradient(to bottom, ${rgbToHex(colors[1][0], colors[1][1], colors[1][2])} 0%, ${rgbToHex(colors[1][0], colors[1][1], colors[1][2])} 50%, ${rgbToHex(colors[2][0], colors[2][1], colors[2][2])} 50%, ${rgbToHex(colors[2][0], colors[2][1], colors[2][2])} 100%);`);
+        console.log('    .container h1 {');
+        console.log(`        color: ${rgbToHex(colors[0][0], colors[0][1], colors[0][2])};`);
+        console.log('    }');
+        console.log('    .container .nav .nav-link {');
+        console.log(`        color: ${rgbToHex(colors[0][0], colors[0][1], colors[0][2])};`);
+        console.log('    }');
+        console.log('    .container .nav .nav-link:hover {');
+        console.log(`        color: ${rgbToHex(colors[1][0], colors[1][1], colors[1][2])};`);
+        console.log('    }');
+        console.log('}');
         $(currentSelection).find('.word').css({
             color: localStorage.fontColor,
         });
