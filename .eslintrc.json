@@ -39,6 +39,7 @@
         "space-before-function-paren": ["error", "never"],
         "space-in-parens": 0,
         "max-len": 0,
+        "indent": ["error", 4, { "SwitchCase": 1 }],
         "vars-on-top": 1
     }
 }

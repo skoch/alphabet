@@ -25,7 +25,7 @@
         {# <img src="/images/{{ item.letter }}/{{ item.object }}.png"> #}
 {% for letter in alphabet|split('') %}
 
-<div class="container letter-{{ letter }}" data-letter="{{ letter }}">
+<div id="{{ letter|upper }}" class="container" data-letter="{{ letter }}">
     <div class="word"><span class="letter upper">{{ letter|upper }}</span></div>
     <div class="object"></div>
 </div>
