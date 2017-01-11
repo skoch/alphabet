@@ -12,7 +12,7 @@
         {{ block('extras_header_code') }}
     </head>
 
-    <body class="{{ bodyClass }}">
+    <body class="{{ bodyClass }}"{% if level %} data-level="{{ level }}"{% endif %}>
 
         {# SVG spritesheet inclusion via global variable #}
         {{ svgSprite }}

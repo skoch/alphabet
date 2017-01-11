@@ -12,13 +12,13 @@ const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 const images = {
     a: ['apple', 'alligator', 'ant'],
     b: ['banana', 'bear-alt', 'bread', 'butter', 'butterfly'],
-    c: ['carrot', 'cow', 'crow', 'cat'],
-    d: ['duck', 'dandelion', 'dolphin', 'dog'],
+    c: ['carrot-alt', 'cow', 'crow', 'cat'],
+    d: ['duck', 'dandelion-alt', 'dolphin', 'dog'],
     e: ['eggplant', 'eggs', 'elephant', 'eagle-alt'],
     f: ['fig', 'fox', 'fish', 'frog', 'feather'],
     g: ['garlic', 'glasses', 'giraffe', 'goldfish', 'goat'],
     h: ['honey', 'honeydew', 'horse', 'hammer'],
-    i: ['iguana-alt', 'ice-cream'],
+    i: ['iguana-alt', 'ice-cream-alt-2'],
     j: ['jaguar-alt'],
     k: ['kangaroo', 'key', 'knife'],
     l: ['lion', 'lemon', 'leaves', 'lollipop'],
@@ -89,6 +89,7 @@ function setActiveObject(letter = randomLetter()) {
         });
         $('.alphabet').css({
             background: `linear-gradient(to bottom, ${localStorage.gradientStartColor} 0%, ${localStorage.gradientStartColor} 50%, ${localStorage.gradientEndColor} 50%, ${localStorage.gradientEndColor} 100%)`,
+            // background: `linear-gradient(135deg, ${localStorage.gradientStartColor} 0%, ${localStorage.gradientEndColor} 50%, ${localStorage.fontColor} 100%)`,
         });
         $(currentSelection).addClass('active');
     };
@@ -103,7 +104,7 @@ function shake() {
     }, 250);
 }
 
-function space(event, key, code) {
+function onSpace(event, key, code) {
     // setActiveObject();
     switch (mode) {
         case 1 : {
@@ -119,7 +120,11 @@ function space(event, key, code) {
     }
 }
 
-function whatKey(event, key, code) {
+function onKeyDown(event, key, code) {
+    // mode 1 does nothing as of now
+    if (mode === 1) {
+        return;
+    }
     // if (!godMode) {
     //     return;
     // }
@@ -129,9 +134,6 @@ function whatKey(event, key, code) {
         //     return;
         // }
         switch (mode) {
-            case 1 :
-                console.log('Do nothing for mode', mode);
-                break;
             case 2 :
                 setActiveObject(key);
                 break;
@@ -151,11 +153,17 @@ function whatKey(event, key, code) {
     }
 }
 
-function setMode(event, key, code) {
-    // console.log('key, code', key, code);
-    mode = parseInt(key, 10);
-    console.log('mode', mode);
-    // remove or add the word/letter
+function toggleGodMode(event, key, code) {
+    godMode = !godMode;
+}
+
+function showLetter(event, key, code) {
+    if (!$(currentSelection).find('.word').hasClass('in')) {
+        $(currentSelection).find('.word').addClass('in');
+    }
+}
+
+function startPresentation() {
     const $word = $('.container').find('.word');
     switch (mode) {
         case 1 :
@@ -174,35 +182,28 @@ function setMode(event, key, code) {
     }
 }
 
-function toggleGodMode(event, key, code) {
-    godMode = !godMode;
-}
-
-function showLetter(event, key, code) {
-    if (!$(currentSelection).find('.word').hasClass('in')) {
-        $(currentSelection).find('.word').addClass('in');
+function setMode(event, key, code) {
+    // console.log('key, code', key, code);
+    if (parseInt(key, 10) !== mode) {
+        mode = parseInt(key, 10);
+        // startPresentation();
+        window.location = `${mode}`;
     }
 }
 
 module.exports = {
     init: function(config) {
+        mode = $('body').data('level');
         console.log('  === alphabet ===', mode);
         signals = config.signals;
 
-        // hi.on('ctrl-1', showLetter);
-        hi.on('ctrl-1', setMode);
-        hi.on('ctrl-2', setMode);
-        hi.on('ctrl-3', setMode);
-        // hi.on('ctrl-g', toggleGodMode);
-        hi.on('keydown', whatKey);
-        hi.on('space', space);
 
-        switch (mode) {
-            case 1 :
-                setActiveObject('a');
-                break;
-            default :
-                setActiveObject();
-        }
+        // hi.on('ctrl-1', showLetter);
+        hi.on(['ctrl-1', 'ctrl-2', 'ctrl-3'], setMode);
+        // hi.on('ctrl-g', toggleGodMode);
+        hi.on('keydown', onKeyDown);
+        hi.on('space', onSpace);
+
+        startPresentation();
     },
 };
