@@ -32,9 +32,13 @@
         overflow: hidden;
         opacity: 0;
         transition: opacity 0.15s ease-out;
+        // transform: translateY(3px);
+        // transition: opacity 0.25s ease-out, transform 0.25s ease-out;
 
         &.active {
             transition: opacity 0.15s ease-out;
+            // transform: translateX(0);
+            // transition: opacity 0.55s ease-out, transform 0.25s ease-out;
             // transition-delay: 1s;
             opacity: 1;
         }

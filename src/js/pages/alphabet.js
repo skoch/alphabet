@@ -77,7 +77,7 @@ function setActiveObject(letter = randomLetter()) {
     if (previousSelection) {
         $(previousSelection).removeClass('active');
         // remove word/letter
-        if (mode === 2) {
+        if (mode === 3) {
             $(previousSelection).find('.word').removeClass('in');
         }
     }

@@ -1,26 +1,21 @@
-// banana ?
-.home {
-    background: linear-gradient(to bottom, #664906 0%, #664906 50%, #7d5304 50%, #7d5304 100%);
-    .container h1 {
-        color: #dbb211;
-    }
-    .container .nav .nav-link {
-        color: #dbb211;
-    }
-    .container .nav .nav-link:hover {
-        color: #664906;
+$images: no-idea eagle   leaves  quince  lemon   lollipop dolphin umbrella;
+$color1: #dbb211 #272326 #628540 #535323 #dbb211 #bb994c  #686e75 #f2c12d;
+$color2: #664906 #aaa298 #c1d07c #dbc755 #754f04 #e9e2d8  #cdc9c5 #58370a;
+$color3: #7d5304 #8a98a5 #d1d7b4 #adaf77 #6d6308 #e0d899  #b0bdd0 #ead8c6;
+
+
+@each $image in $images {
+    $i: index($images, $image);
+    .home.#{$image} {
+        background: linear-gradient(to bottom, nth($color2, $i) 0%, nth($color2, $i) 50%, nth($color3, $i) 50%, nth($color3, $i) 100%);
+        .container h1 {
+            color: nth($color1, $i);
+        }
+        .container .nav .nav-link {
+            color: nth($color1, $i);
+        }
+        .container .nav .nav-link:hover {
+            color: nth($color2, $i);
+        }
     }
 }
-// // umbrella
-// .home {
-//     background: linear-gradient(to bottom, #58370a 0%, #58370a 50%, #ead8c6 50%, #ead8c6 100%);
-//     .container h1 {
-//         color: #f2c12d;
-//     }
-//     .container .nav .nav-link {
-//         color: #f2c12d;
-//     }
-//     .container .nav .nav-link:hover {
-//         color: #58370a;
-//     }
-// }
