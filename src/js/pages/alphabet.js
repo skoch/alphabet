@@ -20,7 +20,7 @@ const images = {
     h: ['honey', 'honeydew', 'horse', 'hammer'],
     i: ['iguana-alt', 'ice-cream-alt-2'],
     j: ['jaguar-alt', 'jar-alt'],
-    k: ['kangaroo', 'key', 'knife'],
+    k: ['kangaroo', 'key', 'kite'],
     l: ['lion', 'lemon', 'leaves', 'lollipop'],
     m: ['monkey', 'mouse', 'matches', 'marbles'],
     n: ['nectarine', 'newspaper', 'nickel'],
